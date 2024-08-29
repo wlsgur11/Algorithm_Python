@@ -10,3 +10,5 @@ def solution(people, limit):
         cnt += 1
         
     return cnt
+
+
