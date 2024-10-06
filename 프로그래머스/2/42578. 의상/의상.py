@@ -1,13 +1,11 @@
 def solution(clothes):
-    closet = {} 
-    for name, kind in clothes:
-        if kind in closet.keys():
-            closet[kind] += [name]
+    A = {}
+    for i, j in clothes:
+        if j not in A:
+            A[j] = [i]
         else:
-            closet[kind] = [name]
-    
-    answer = 1
-    for _, value in closet.items():
-        answer *= (len(value) + 1)
-        
-    return answer -1
+            A[j] += [i]
+    ans = 1
+    for _, i in A.items():
+        ans *= (len(i) + 1)
+    return ans - 1
