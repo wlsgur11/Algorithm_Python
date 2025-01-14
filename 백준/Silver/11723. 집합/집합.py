@@ -1,20 +1,14 @@
 import sys
-S = []
+S = 0
 M = int(input())
 for i in range(M):
     A = sys.stdin.readline().strip()
-    if A == 'all': S = [j for j in range(1, 21)]
-    elif A == 'empty': S = []
+    if A == 'all': S = (1 << 21) - 1
+    elif A == 'empty': S = 0
     else:
         command, num = A.split()
         num = int(num)
-        if command == 'add':
-            if num not in S: S.append(num)
-        if command == 'remove':
-            if num in S: S.remove(num)
-        if command == 'check':
-            if num in S: print(1)
-            else: print(0)
-        if command == 'toggle':
-            if num in S: S.remove(num)
-            else: S.append(num)
+        if command == 'add': S |= (1 << num)
+        if command == 'remove': S &= ~(1 << num)
+        if command == 'check': print(1 if S & (1 << num) != 0 else 0)
+        if command == 'toggle': S ^= (1 << num)
