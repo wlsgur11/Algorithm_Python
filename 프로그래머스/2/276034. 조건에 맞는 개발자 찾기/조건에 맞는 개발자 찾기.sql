@@ -1,0 +1,4 @@
+select DISTINCT D.ID, D.EMAIL, D.FIRST_NAME, D.LAST_NAME
+from DEVELOPERS D, SKILLCODES S
+where D.SKILL_CODE & S.CODE > 0 and S.NAME in ('Python', 'C#')
+order by D.ID
