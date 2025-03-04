@@ -1,11 +1,20 @@
+import sys
+input = sys.stdin.readline
+
 N = int(input())
 M = int(input())
 S = input()
 
-IOI = 'I' + 'OI' * N
-length, cnt = len(IOI), 0
+ans, i, cnt = 0, 0, 0
 
-for i in range(M - length + 1):
-    A = S[i:i+length]
-    if A == IOI: cnt += 1
-print(cnt)
+while i < (M-1):
+    if S[i:i+3] == "IOI":
+        i += 2
+        cnt += 1
+        if cnt == N:
+            ans += 1
+            cnt -= 1
+    else:
+        i += 1
+        cnt = 0
+print(ans)
