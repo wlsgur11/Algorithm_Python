@@ -4,7 +4,7 @@ def solution(numbers, target):
     def dfs(i, total):
         global ans
         if (i == len(numbers)):
-            if total == target:
+            if target == total:
                 ans += 1
             return
         dfs(i+1, total + numbers[i])
