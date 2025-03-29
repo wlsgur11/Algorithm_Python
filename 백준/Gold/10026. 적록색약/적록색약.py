@@ -1,7 +1,7 @@
 from collections import deque
 
 
-def bfs(i, j, A):
+def bfs(i, j, A, visited):
     q = deque([(i, j)])
 
     while q:
@@ -17,16 +17,17 @@ N = int(input())
 change_normal = {'R': 1, 'G': 2, 'B': 3}
 change_blind = {'R': 1, 'G': 1, 'B': 2}
 
-first = [list(map(str, input())) for _ in range(N)]
+RGB = [list(map(str, input())) for _ in range(N)]
 
 normal = [[0] * N for _ in range(N)]
 blind = [[0] * N for _ in range(N)]
 for i in range(N):
     for j in range(N):
-        normal[i][j] = change_normal[first[i][j]]
-        blind[i][j] = change_blind[first[i][j]]
+        normal[i][j] = change_normal[RGB[i][j]]
+        blind[i][j] = change_blind[RGB[i][j]]
 
-visited = [[False] * N for _ in range(N)]
+visited1 = [[False] * N for _ in range(N)]
+visited2 = [[False] * N for _ in range(N)]
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
 
@@ -34,15 +35,11 @@ ans = [0, 0]
 
 for i in range(N):
     for j in range(N):
-        if not visited[i][j]:
-            bfs(i, j, normal)
+        if not visited1[i][j]:
+            bfs(i, j, normal, visited1)
             ans[0] += 1
-
-visited = [[False] * N for _ in range(N)]
-for i in range(N):
-    for j in range(N):
-        if not visited[i][j]:
-            bfs(i, j, blind)
+        if not visited2[i][j]:
+            bfs(i, j, blind, visited2)
             ans[1] += 1
 
 print(*ans)
