@@ -14,16 +14,13 @@ def bfs(i, j, A, visited):
 
 N = int(input())
 
-change_normal = {'R': 1, 'G': 2, 'B': 3}
 change_blind = {'R': 1, 'G': 1, 'B': 2}
 
 RGB = [list(map(str, input())) for _ in range(N)]
 
-normal = [[0] * N for _ in range(N)]
 blind = [[0] * N for _ in range(N)]
 for i in range(N):
     for j in range(N):
-        normal[i][j] = change_normal[RGB[i][j]]
         blind[i][j] = change_blind[RGB[i][j]]
 
 visited1 = [[False] * N for _ in range(N)]
@@ -36,7 +33,7 @@ ans = [0, 0]
 for i in range(N):
     for j in range(N):
         if not visited1[i][j]:
-            bfs(i, j, normal, visited1)
+            bfs(i, j, RGB, visited1)
             ans[0] += 1
         if not visited2[i][j]:
             bfs(i, j, blind, visited2)
