@@ -4,21 +4,22 @@ N, M = map(int, input().split())
 adj = {i: i for i in range(1, 101)}
 
 for _ in range(N+M):
-    x, y = map(int, input().split())
-    adj[x] = y
+    a, b = map(int, input().split())
+    adj[a] = b
 
-q = deque([(1, 0)])
 visited = [False] * 101
 visited[1] = True
-while q:
-    pos, step = q.popleft()
+q = deque([(1, 0)])
 
-    if pos == 100:
+while q:
+    now, step = q.popleft()
+
+    if now == 100:
         print(step)
         break
-
+    
     for i in range(1, 7):
-        next = pos + i
+        next = now + i
         if next > 100:
             continue
 
