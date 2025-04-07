@@ -5,9 +5,11 @@ def solution(participant, completion):
             p[i] = 1
         else:
             p[i] += 1
+    c = {}
     for i in completion:
-        p[i] -= 1
-        if p[i] == 0:
-            del p[i]
-    for i in p.keys():
+        if i not in c:
+            c[i] = 1
+        else:
+            c[i] += 1
+    for i in dict(set(p.items()) - set(c.items())).keys():
         return i
