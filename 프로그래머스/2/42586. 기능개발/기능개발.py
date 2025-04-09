@@ -1,7 +1,5 @@
-import math
-
 def solution(progresses, speeds):
-    arr = [math.ceil((100-a) / b) for a, b in zip(progresses, speeds)]
+    arr = [((100-a) + b - 1) // b for a, b in zip(progresses, speeds)]
     ans = []
     front = 0
     print(arr)
