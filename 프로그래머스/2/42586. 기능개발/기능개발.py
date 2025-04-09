@@ -1,12 +1,13 @@
 import math
 
 def solution(progresses, speeds):
-    progresses = [math.ceil((100 - a) / b) for a, b in zip(progresses, speeds)]
+    arr = [math.ceil((100-a) / b) for a, b in zip(progresses, speeds)]
     ans = []
     front = 0
-    for i in range(len(progresses)):
-        if progresses[i] > progresses[front]:
-            ans.append(i - front)
+    print(arr)
+    for i in range(len(arr)):
+        if arr[i] > arr[front]:
+            ans.append(i-front)
             front = i
-    ans.append(len(progresses) - front)
+    ans.append(len(arr) - front)
     return ans
