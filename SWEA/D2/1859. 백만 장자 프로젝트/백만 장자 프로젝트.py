@@ -1,13 +1,15 @@
 T = int(input())
-for t in range(T):
+
+for tc in range(1, T+1):
     N = int(input())
     nums = list(map(int, input().split()))
-    max_price = 0
-    profit = 0
+    max_profit = 0
+    ans = 0
 
     for i in range(N-1, -1, -1):
-        if nums[i] > max_price:
-            max_price = nums[i]
+        if nums[i] > max_profit:
+            max_profit = nums[i]
         else:
-            profit += max_price - nums[i]
-    print(f"#{t+1} {profit}")
+            ans += max_profit - nums[i]
+
+    print(f"#{tc} {ans}")
