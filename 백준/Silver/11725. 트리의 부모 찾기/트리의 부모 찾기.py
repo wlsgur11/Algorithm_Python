@@ -2,23 +2,28 @@ from collections import deque
 import sys
 input = sys.stdin.readline
 
-N = int(input())
+n = int(input())
+graph = [[] for _ in range(n+1)]
+parent = [0] * (n+1)
 
-adj = [[] for _ in range(N+1)]
-for _ in range(N-1):
-    A, B = map(int, input().split())
-    adj[A].append(B)
-    adj[B].append(A)
+for _ in range(n-1):
+    a, b = map(int, input().split())
+    graph[a].append(b)
+    graph[b].append(a)
 
-parent = [0] * (N+1)
+def bfs():
+    q = deque([1])
+    parent[1] = 1
+    
+    while q:
+        now = q.popleft()
+        for next in graph[now]:
+            if parent[next] == 0:
+                parent[next] = now
+                q.append(next)
 
-q = deque([1])
-while q:
-    node = q.popleft()
-    for i in adj[node]:
-        if parent[i] == 0:
-            parent[i] = node
-            q.append(i)
+bfs()
 
-for i in range(2, N+1):
+for i in range(2, n+1):
     print(parent[i])
+    
