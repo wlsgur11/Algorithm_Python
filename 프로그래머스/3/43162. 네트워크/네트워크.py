@@ -13,10 +13,12 @@ def solution(n, computers):
                     visited[neighbor] = True
                     q.append(neighbor)
     
+    
     visited = [False] * n
     ans = 0
     for i in range(n):
         if not visited[i]:
             bfs(i)
             ans += 1
+    
     return ans
