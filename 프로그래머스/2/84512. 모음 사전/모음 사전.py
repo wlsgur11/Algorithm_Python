@@ -1,18 +1,17 @@
-vowels = ['A', 'E', 'I', 'O', 'U']
-idx = -1
-ans = 0
-
 def solution(word):
-    def dfs(cnt, s):
-        global ans, idx
-        if cnt <= 5:
-            idx += 1
-            if s == word:
-                ans = idx
-        else:
+    words = []
+    vowel = ['A', 'E', 'I', 'O', 'U']
+
+    def dfs(current_word):
+        if current_word != '':
+            words.append(current_word)
+        
+        if len(current_word) == 5:
             return
-        for i in range(5):
-            dfs(cnt + 1, s + vowels[i])
+        
+        for v in vowel:
+            dfs(current_word + v)
     
-    dfs(0, '')
-    return ans
+    dfs('')
+    
+    return words.index(word) + 1
