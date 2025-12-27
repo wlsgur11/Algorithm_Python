@@ -1,21 +1,18 @@
 def solution(s):
     cnt = 0
     for i in range(len(s)):
-        x = (s+s[:i])[i:]
-        
         stack = []
-        for j in x:
-            if stack:
-                if j == ")" and stack[-1] == "(":
+        for c in s:
+            if not stack:
+                stack.append(c)
+            elif (stack[-1] == '(' and c == ')') or \
+                (stack[-1] == '{' and c == '}') or \
+                (stack[-1] == '[' and c == ']'):
                     stack.pop()
-                elif j == "}" and stack[-1] == "{":
-                    stack.pop()
-                elif j == "]" and stack[-1] == "[":
-                    stack.pop()
-                else:
-                    stack.append(j)
             else:
-                stack.append(j)
-        if len(stack) == 0:
+                stack.append(c)
+        if not stack:
             cnt += 1
+        s = s[1:] + s[0]
+                    
     return cnt
