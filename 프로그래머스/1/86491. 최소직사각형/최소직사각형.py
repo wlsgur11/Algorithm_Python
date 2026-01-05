@@ -1,7 +1,8 @@
 def solution(sizes):
-    a, b = 0, 0
+    l, w = 0, 0
     for i in range(len(sizes)):
-        sizes[i] = [max(sizes[i]), min(sizes[i])]
-        if a < sizes[i][0]: a = sizes[i][0]
-        if b < sizes[i][1]: b = sizes[i][1]
-    return a * b
+        if sizes[i][0] < sizes[i][1]:
+            sizes[i][0], sizes[i][1] = sizes[i][1], sizes[i][0]
+        if sizes[i][0] > l: l = sizes[i][0]
+        if sizes[i][1] > w: w = sizes[i][1]
+    return l*w
