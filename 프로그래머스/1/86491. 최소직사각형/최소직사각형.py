@@ -1,8 +1,8 @@
 def solution(sizes):
-    l, w = 0, 0
-    for i in range(len(sizes)):
-        if sizes[i][0] < sizes[i][1]:
-            sizes[i][0], sizes[i][1] = sizes[i][1], sizes[i][0]
-        if sizes[i][0] > l: l = sizes[i][0]
-        if sizes[i][1] > w: w = sizes[i][1]
-    return l*w
+    length, width = 0, 0
+    for a, b in sizes:
+        if a < b:
+            a, b = b, a
+        if a > length: length = a
+        if b > width: width = b
+    return length * width
