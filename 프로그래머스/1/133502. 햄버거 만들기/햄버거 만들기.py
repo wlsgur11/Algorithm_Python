@@ -3,10 +3,9 @@ def solution(ingredient):
     stack = []
     for i in ingredient:
         stack.append(i)
-        while len(stack) > 3:
-            if stack[-4:] == [1, 2, 3, 1]:
-                cnt += 1
-                for _ in range(4):
-                    stack.pop()
-            else: break
+        if len(stack) > 3 and stack[-4:] == [1, 2, 3, 1]:
+            cnt += 1
+            for _ in range(4):
+                stack.pop()
+            
     return cnt
