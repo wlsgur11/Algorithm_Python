@@ -1,2 +1,5 @@
-A = input()
-print(eval(A))
+logic = """
+s = input()
+print(eval(s))
+"""
+exec(logic)
