@@ -1,3 +1,5 @@
+from bisect import bisect_left
+​
 T = int(input())
 for _ in range(T):
     N, M = map(int, input().split())
@@ -8,15 +10,5 @@ for _ in range(T):
     cnt = 0
 ​
     for a_val in A:
-        left, right, temp = 0, M - 1, 0
-        while left <= right:
-            mid = (left + right) // 2
-​
-            if B[mid] < a_val:
-                temp = mid + 1
-                left = mid + 1
-            else:
-                right = mid - 1
-​
-        cnt += temp
+        cnt += bisect_left(B, a_val)
     print(cnt)
