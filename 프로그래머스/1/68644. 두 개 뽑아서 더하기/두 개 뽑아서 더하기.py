@@ -1,10 +1,9 @@
 def solution(numbers):
-    ans = []
-    for i in range(len(numbers)-1):
-        for j in range(i+1, len(numbers)):
-            a = numbers[i] + numbers[j]
-            if a in ans:
-                continue
+    ans = set()
+    for i in range(len(numbers)):
+        for j in range(len(numbers)):
+            if i == j:
+                pass
             else:
-                ans.append(a) 
-    return sorted(ans)
+                ans.add(numbers[i] + numbers[j])
+    return sorted(list(ans))
