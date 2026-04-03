@@ -1,11 +1,9 @@
 N, M = map(int, input().split())
-set1 = set()
-set2 = set()
 
-for i in range(N): set1.add(input())
-for i in range(M): set2.add(input())
+A = set(input() for _ in range(N))
+B = set(input() for _ in range(M))
 
-lst = list(set1 & set2)
-lst.sort()
-print(len(lst))
-for i in lst: print(i)
+C = list(A.intersection(B))
+print(len(C))
+C.sort()
+for i in C: print(i)
