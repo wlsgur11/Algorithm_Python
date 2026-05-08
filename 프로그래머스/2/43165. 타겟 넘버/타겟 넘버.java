@@ -9,7 +9,6 @@ class Solution {
             return sum == target ? 1: 0;
         }
         
-        return dfs(numbers, target, index + 1, sum + numbers[index]) +
-            dfs(numbers, target, index + 1, sum - numbers[index]);
+        return dfs(numbers, target, index + 1, sum + numbers[index]) + dfs(numbers, target, index+1, sum - numbers[index]);
     }
 }
