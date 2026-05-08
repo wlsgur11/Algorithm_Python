@@ -6,11 +6,11 @@ class Solution {
         HashSet<String> reportSet = new HashSet<>(Arrays.asList(report));
         
         // 신고당한 횟수 기록
-        HashMap<String, Integer> reportCountMap = new HashMap<>();
+        HashMap<String, Integer> reportedMap = new HashMap<>();
         for (String rep: reportSet){
-            String reported = rep.split(" ")[1];
-            reportCountMap.put(reported, reportCountMap.getOrDefault(reported, 0) + 1);
-        }    
+            String name = rep.split(" ")[1];
+            reportedMap.put(name, reportedMap.getOrDefault(name, 0) + 1);            
+        }     
         
         // 내가 신고한 사람 중 정지 된 사람이 몇명인지
         HashMap<String, Integer> mailCountMap = new HashMap<>();
@@ -20,16 +20,19 @@ class Solution {
             String reporter = name[0];
             String reported = name[1];
             
-            if (reportCountMap.get(reported) >= k){
+            if (reportedMap.get(reported) >= k){
                 mailCountMap.put(reporter, mailCountMap.getOrDefault(reporter, 0) + 1);
             }
         }
         
         // 결과 배열 만들기
-        int[] answer = new int[id_list.length];
+        int[] ans = new int[id_list.length];
+        
         for (int i = 0; i < id_list.length; i++){
-            answer[i] = mailCountMap.getOrDefault(id_list[i], 0);
+            ans[i] = mailCountMap.getOrDefault(id_list[i], 0);
         }
-        return answer;
+        
+        return ans;
+        
     }
 }
