@@ -1,3 +1,3 @@
-select count(*) as COUNT
-from ECOLI_DATA
-where (GENOTYPE & 2) = 0 and ((GENOTYPE & 1) > 0 or (GENOTYPE & 4) > 0)
+SELECT COUNT(*) as COUNT
+FROM ECOLI_DATA 
+WHERE (GENOTYPE & 5) > 0 and not (GENOTYPE & 2)
