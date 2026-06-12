@@ -1,4 +1,3 @@
-select *
-from FOOD_PRODUCT
-where price = (select max(price)
-                from FOOD_PRODUCT)
+SELECT *
+FROM FOOD_PRODUCT 
+WHERE PRICE = (SELECT MAX(PRICE) FROM FOOD_PRODUCT)
