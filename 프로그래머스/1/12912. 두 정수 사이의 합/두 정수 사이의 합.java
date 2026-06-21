@@ -1,13 +1,16 @@
-import java.math.*;
-
 class Solution {
     public long solution(int a, int b) {
-        long answer = 0;
-        int c = Math.min(a, b);
-        int d = Math.max(a, b);
-        for (int i = c;i <= d; i++){
-            answer += i;
+        long res = 0L;
+        if (a>b){
+            for (int i = b; b <= a; b++) {
+                res += b;
+            }
         }
-        return answer;
+        else {
+            for (int i = a; a <= b; a++) {
+                res += a;
+            }
+        }
+    return res;
     }
 }
