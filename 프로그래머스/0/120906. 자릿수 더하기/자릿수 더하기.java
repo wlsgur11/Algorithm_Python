@@ -1,13 +1,10 @@
 class Solution {
     public int solution(int n) {
         int ans = 0;
-        while (true) {
-            if (n / 10 < 1) {
-                ans += n % 10;
-                return ans;
-            }
+        while (n > 0) {
             ans += n % 10;
-            n = n / 10;
+            n /= 10;
         }
+        return ans;
     }
 }
