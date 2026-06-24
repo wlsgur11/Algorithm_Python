@@ -1,11 +1,13 @@
 class Solution {
     boolean solution(String s) {
         s = s.toUpperCase();
-        int cnt = 0;
+        int a = 0;
+        int b = 0;
         for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) == 'P') cnt++;
-            else if (s.charAt(i) == 'Y') cnt--;
+            char c = s.charAt(i);
+            if (c == 'P') a++;
+            if (c == 'Y') b++;
         }
-        return cnt == 0;
+        return a == b;
     }
 }
