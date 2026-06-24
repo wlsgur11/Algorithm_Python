@@ -1,6 +1,7 @@
 class Solution {
     public String solution(String s) {
-        if (s.length() % 2 == 0) return s.substring(s.length()/2-1, s.length()/2+1);
-        else return s.substring(s.length()/2, s.length()/2+1);
+        int n = s.length();
+        if (n % 2 == 0) return s.substring(n/2-1, n/2+1);
+        else return s.substring(n/2, n/2+1);
     }
 }
