@@ -1,10 +1,10 @@
 # [level 1] 예산 - 12982 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12982) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/12982?language=java) 
 
 ### 성능 요약
 
-메모리: 9.34 MB, 시간: 0.03 ms
+메모리: 75.2 MB, 시간: 4.11 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2026년 01월 05일 15:16:06
+2026년 06월 27일 15:54:04
 
 ### 문제 설명
 
