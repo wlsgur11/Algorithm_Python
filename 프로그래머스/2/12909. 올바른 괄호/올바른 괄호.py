@@ -1,8 +1,11 @@
 def solution(s):
-    A = 0
+    stack = []
     for i in s:
-        if i == "(": A += 1
-        elif i == ")": A -= 1
-        if A == -1: return False
-    if A == 0: return True
-    else: return False
+        if stack and i == ')' and stack[-1] == '(': 
+            stack.pop()
+        else: 
+            stack.append(i)
+    if stack: 
+        return False
+    else: 
+        return True
