@@ -1,6 +1,6 @@
 def solution(people, limit):
     people.sort()
-    cnt, left, right = 0, 0, len(people)-1
+    left, right, cnt = 0, len(people) - 1, 0
     
     while left <= right:
         if people[left] + people[right] <= limit:
@@ -8,5 +8,3 @@ def solution(people, limit):
         right -= 1
         cnt += 1
     return cnt
-
-
