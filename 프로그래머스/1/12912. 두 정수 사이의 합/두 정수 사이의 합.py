@@ -1,2 +1,5 @@
 def solution(a, b):
-    return sum([i for i in range(min(a, b), max(a, b) + 1)])
+    ans = 0
+    for i in range(min(a, b) ,max(a, b)+1):
+        ans += i
+    return ans
