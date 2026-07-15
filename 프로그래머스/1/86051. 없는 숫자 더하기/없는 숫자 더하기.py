@@ -1,4 +1,2 @@
 def solution(numbers):
-    num = set(numbers)
-    nums = set([i for i in range(10)])
-    return sum(nums - num)
+    return sum(range(10)) - sum(numbers)
