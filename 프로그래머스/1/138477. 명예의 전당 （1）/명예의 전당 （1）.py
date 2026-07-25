@@ -1,9 +1,11 @@
+import heapq
+
 def solution(k, score):
-    q = []
-    answer = []
-    for s in score:
-        q.append(s)
-        if (len(q) > k):
-            q.remove(min(q))
-        answer.append(min(q))
-    return answer
+    h = []
+    ans = []
+    for i in score:
+        heapq.heappush(h, i)
+        if len(h) > k:
+            heapq.heappop(h)
+        ans.append(h[0])
+    return ans
