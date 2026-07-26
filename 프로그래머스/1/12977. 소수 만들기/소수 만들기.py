@@ -1,13 +1,14 @@
+from itertools import combinations
+
+def is_prime(n):
+    for i in range(2, int(n ** 0.5)+1):
+        if n % i == 0:
+            return False
+    return True
+
 def solution(nums):
-    cnt = 0
-    for i in range(len(nums)-2):
-        for j in range(i+1,len(nums)):
-            for k in range(j+1,len(nums)):
-                count = 1
-                A = sum([nums[i], nums[j], nums[k]])
-                for num in range(2, A):
-                    if A % num == 0:
-                        count += 1
-                if count == 1:
-                    cnt += 1
-    return cnt
+    ans = 0
+    for i in combinations(nums, 3):
+        if is_prime(sum(i)):
+            ans += 1
+    return ans
