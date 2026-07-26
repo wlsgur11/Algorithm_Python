@@ -1,9 +1,7 @@
+from itertools import combinations
+
 def solution(numbers):
     ans = set()
-    for i in range(len(numbers)):
-        for j in range(len(numbers)):
-            if i == j:
-                pass
-            else:
-                ans.add(numbers[i] + numbers[j])
-    return sorted(list(ans))
+    for i in combinations(numbers, 2):
+        ans.add(sum(i))
+    return sorted(ans)
