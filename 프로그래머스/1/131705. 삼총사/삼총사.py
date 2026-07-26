@@ -1,8 +1,8 @@
-import itertools
+from itertools import combinations
 
 def solution(number):
-    cnt = 0
-    for i in itertools.combinations(number, 3):
-        if sum(i) == 0:
-            cnt += 1
-    return cnt
+    ans = 0
+    for j in combinations(number, 3):
+        if sum(j) == 0:
+            ans += 1
+    return ans
