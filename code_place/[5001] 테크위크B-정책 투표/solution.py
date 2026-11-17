@@ -1,11 +1,10 @@
-import sys, random
-input = sys.stdin.readline
-flag = -1
-n = int(input())
-arr = list(map(int, input().split()))
-for i in range(15):
-    r = random.randint(0, n - 1)
-    if arr.count(arr[r]) > n // 2:
-        flag = arr[r]
-        break
-print(flag)
+from collections import Counter
+
+A = int(input())
+B = input().split()
+
+cnt = Counter(B)
+if cnt.most_common()[0][1] >= (A//2)+1:
+    print(cnt.most_common()[0][0])
+else:
+    print(-1)
